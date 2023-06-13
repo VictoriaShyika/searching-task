@@ -1,0 +1,64 @@
+/**
+ * This is the result section
+ *
+ */
+section#result {
+    position: absolute;
+    width: 100%;
+    top: 72.5px; left: 0;
+    z-index: 1;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+
+    .empty{
+        font-size: 22px;
+        padding: 80px 20px 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    div.result-list {
+        overflow:hidden;
+        max-width: 1150px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;  
+        padding: 70px 20px;
+            
+            .result-item{
+                width: 100%;
+                padding: 20px;
+                background-color: #f2f2f2;
+                display: flex;   
+                flex-direction: column;
+                gap:10px;         
+
+            .image-container{
+                display: flex;            
+                width: 100%;
+                justify-content: center;
+                img{
+                    max-height: 250px;
+                    padding: 0 20px;
+                }
+            }
+
+            .name{
+                font-size: 22px;
+                color: #040a2b;            
+                font-family: 'Raleway', serif;
+            }
+            .about{
+                font-size: 14px;
+                color: #040a2b;
+                font-family: 'Raleway', serif;
+            }
+            .price{
+                font-weight: 600;
+                font-family: 'Raleway', sans-serif;
+            }
+        }
+    
+
+}}
