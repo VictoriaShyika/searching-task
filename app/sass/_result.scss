@@ -2,6 +2,7 @@
  * This is the result section
  *
  */
+ 
 section#result {
     position: absolute;
     width: 100%;
@@ -11,11 +12,19 @@ section#result {
     display: flex;
     justify-content: center;
 
+    @media (max-width: 860px) {
+        top: 111px;
+    }
+    @media (max-width: 500px) {
+        top: 142.5px;
+    }
+
     .empty{
         font-size: 22px;
         padding: 80px 20px 20px;
         width: 100%;
         text-align: center;
+
     }
 
     div.result-list {
@@ -25,6 +34,13 @@ section#result {
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 10px;  
         padding: 70px 20px;
+
+        @media (max-width: 860px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 500px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
             
             .result-item{
                 width: 100%;
@@ -41,6 +57,9 @@ section#result {
                 img{
                     max-height: 250px;
                     padding: 0 20px;
+                    @media (max-width: 500px) {
+                        max-height: 150px;
+                     }
                 }
             }
 

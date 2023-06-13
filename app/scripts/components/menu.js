@@ -24,6 +24,7 @@ class Menu extends React.Component {
      * @memberof Menu
      * @param e [Object] - the event from a click handler
      */
+    
     showSearchContainer(e) {
         e.preventDefault();
         this.setState({
@@ -31,7 +32,6 @@ class Menu extends React.Component {
             // query: ""
         });
     }
-
     /**
      * Calls upon search change
      * @memberof Menu
@@ -39,14 +39,10 @@ class Menu extends React.Component {
      */
 
     performSearch = async () => {
-      const { query } = this.state;
-      console.log(query, "query");
-
-    const results = await axios.get(`http://localhost:3035/search?q=${query}`);
-      this.setState({ results: results.data });
-  };
-
-
+        const { query } = this.state;
+        const results = await axios.get(`http://localhost:3035/search?q=${query}`);
+        this.setState({ results: results.data });
+    };
 
     onSearch = (e) => {
         const { value } = e.target;
@@ -61,8 +57,6 @@ class Menu extends React.Component {
     */
     render() {
         const { query, results, showingSearch } = this.state;
-        console.log(results, 'render results');
-
         return (
             <>
                 <header className="menu">
@@ -92,7 +86,7 @@ class Menu extends React.Component {
                     </div>
                 </header>
                 <section id='result' >
-                    {results.length ?
+                    {results.length && query ?
                         <div className='result-list'>{results.map((item) => (
                             <div className='result-item' key={item._id}>
                                 <div className='image-container'>
@@ -100,18 +94,14 @@ class Menu extends React.Component {
                                 </div>
                                 <div className='name'>{item.name}</div>
                                 <div className='about'>{item.about}</div>
-                                <div className='price'>{item.price}</div>
+                                <div className='price'>${item.price}</div>
                             </div>))}
                         </div>
                         :(showingSearch && (query ? <div className='empty'>Product not found</div> : <div className='empty'>Type product</div>))}
-                </section>
-
-                
+                </section>   
         </>
         );
     }
-
-
 }
 
 // Export out the React Component
